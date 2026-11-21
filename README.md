@@ -10,7 +10,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?logo=javascript&logoColor=black)
 ![Status](https://img.shields.io/badge/Status-Portf%C3%B3lio-555555)
 
-**[Perfil no GitHub](https://github.com/tteukkkk)** · **[Screenshots](#capturas-do-projeto)** · **[Como executar](#como-executar)**
+**[Perfil no GitHub](https://github.com/tteukkkk)** · **[Screenshots](#capturas-do-projeto)** · **[Como executar](#executar-localmente)**
 
 <a href="previews/painel-claro.png"><img src="previews/painel-claro.png" alt="Interface de DevFlow" width="900" /></a>
 
@@ -26,24 +26,11 @@
 
 As demais telas (landing page, painel, relatórios, configurações e outras) estão em [`previews/`](previews/).
 
-## Como executar
-
-A seção técnica abaixo contém pré-requisitos, instalação, inicialização, testes e observações de segurança. Para uma instalação mais simples no Windows, consulte também as instruções de cada projeto.
-
----
-
+## Sobre o projeto
 
 Uma aplicação **Full Stack** de gestão de projetos para equipes. Design minimalista, roxo como cor complementar, modo claro/escuro, Kanban, tarefas, histórico, relatórios e colaboração em tempo real.
 
 > **Estado:** versão 1.1.2 para demonstração e portfólio. O código é funcional e foi testado localmente. **Não é um SaaS validado para produção comercial** sem as etapas descritas em `docs/PRODUCAO.md`.
-
-## Capturas
-
-| Painel claro | Kanban escuro |
-| --- | --- |
-| ![Painel](previews/painel-claro.png) | ![Kanban](previews/kanban-escuro.png) |
-
-Mais capturas em `previews/`: landing, login, tarefa, relatórios, equipe e layout mobile. As capturas foram renderizadas com o frontend real e dados fictícios provenientes da API local; por uma restrição do navegador utilizado no ambiente de captura, as chamadas HTTP foram reproduzidas a partir de respostas obtidas previamente na aplicação. Não são registros de uma implantação pública.
 
 ## Principais recursos
 
