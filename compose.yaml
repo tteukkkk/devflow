@@ -1,0 +1,15 @@
+services:
+  devflow:
+    build: .
+    ports:
+      - "127.0.0.1:8010:8010"
+    env_file:
+      - .env
+    environment:
+      DEVFLOW_DATABASE_URL: sqlite:////data/devflow.sqlite3
+      DEVFLOW_BASE_URL: http://127.0.0.1:8010
+    volumes:
+      - devflow_data:/data
+    restart: unless-stopped
+volumes:
+  devflow_data:

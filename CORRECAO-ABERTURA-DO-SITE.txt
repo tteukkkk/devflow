@@ -1,0 +1,19 @@
+DevFlow v1.1.2 - correcao de abertura do site (404 em /login)
+
+Problema: o iniciador anterior consultava http://127.0.0.1:8010/login,
+mas a pagina de acesso existe em /entrar. O servidor iniciava normalmente,
+porem respondia 404 a todas as consultas /login.
+
+Correcao:
+- O iniciador passa a consultar e abrir /entrar.
+- A rota /login agora redireciona para /entrar por compatibilidade.
+- O .bat mostra a URL correta na propria janela.
+
+Abra: http://127.0.0.1:8010/entrar
+Conta de demonstracao (somente em banco novo):
+  demo@devflow.example.com
+  DemoSeguro#2026
+
+NENHUM banco ou arquivo .env foi alterado. O ZIP nao inclui dados locais.
+A extracao para uma nova pasta evita sobrescrever arquivos de uso anterior.
+Mantenha a janela do iniciador aberta durante o uso.
