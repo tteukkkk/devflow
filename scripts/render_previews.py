@@ -26,7 +26,7 @@ def make_html(path):
     return raw
 
 with sync_playwright() as pw:
-    browser=pw.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
+    browser=pw.chromium.launch(headless=True,**({'executable_path':'/usr/bin/chromium'} if Path('/usr/bin/chromium').exists() else {}),args=['--no-sandbox','--disable-dev-shm-usage'])
     errors=[]
     def shot_static(name,path,theme='light',width=1440,height=930,full=True):
         page=browser.new_page(viewport={'width':width,'height':height},device_scale_factor=1)
@@ -37,8 +37,11 @@ with sync_playwright() as pw:
         print(name,'static rendered')
         page.close()
     shot_static('landing-claro','landing.html',full=True)
+    shot_static('landing-escuro','landing.html',theme='dark',full=True)
     shot_static('login-claro','auth.html',full=False)
+    shot_static('login-escuro','auth.html',theme='dark',full=False)
     shot_static('landing-mobile','landing.html',width=390,height=844,full=True)
+    shot_static('landing-mobile-escuro','landing.html',theme='dark',width=390,height=844,full=True)
     def shot_app(name,view='overview',theme='light',width=1440,height=930,full=False,pid=0,task=False):
         page=browser.new_page(viewport={'width':width,'height':height},device_scale_factor=1)
         page.on('pageerror',lambda exc: errors.append((name,str(exc))))
@@ -78,8 +81,12 @@ with sync_playwright() as pw:
     shot_app('kanban-claro',view='board',pid=data['projects'][0]['id'])
     shot_app('kanban-escuro',view='board',theme='dark',pid=data['projects'][0]['id'])
     shot_app('tarefa-claro',view='board',pid=data['projects'][0]['id'],task=True)
+    shot_app('tarefa-escuro',view='board',theme='dark',pid=data['projects'][0]['id'],task=True)
+    shot_app('relatorios-claro',view='insights')
     shot_app('relatorios-escuro',view='insights',theme='dark')
     shot_app('equipe-claro',view='team')
+    shot_app('equipe-escuro',view='team',theme='dark')
     shot_app('painel-mobile',width=390,height=844)
+    shot_app('painel-mobile-escuro',theme='dark',width=390,height=844)
     browser.close()
     print('JS errors',errors)
